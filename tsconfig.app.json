@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/services/stock-pricing.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
