@@ -2,6 +2,11 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainPage } from "./main-page/main-page";
 import { IonApp } from "@ionic/angular/standalone";
+import { register } from 'swiper/element';
+
+
+register();
+
 
 @Component({
   selector: 'app-root',

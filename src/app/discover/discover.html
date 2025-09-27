@@ -1,1 +1,45 @@
-<p>discover works!</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Stock Prices</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="onSearch()" (ionClear)="onSearchClear()"
+        placeholder="Search stocks by symbol..." showClearButton="focus" debounce="300">
+    </ion-searchbar>
+
+    <div *ngIf="loading" class="ion-text-center ion-padding">
+        <ion-spinner></ion-spinner>
+        <p>Loading stock prices...</p>
+    </div>
+    @if (!loading) {
+    <div>
+        <ion-list>
+            @for (stock of stocks; track stock.symbol) {
+            <ion-item button="true" (click)="navigateToDetail(stock.symbol)">
+                <ion-label>
+                    <h2 class="stock-symbol">{{ stock.symbol }}</h2>
+                    <div class="stock-details">
+                        <p>Open: {{ formatPrice(stock.open) }} | Close: {{ formatPrice(stock.close) }}</p>
+                        <p>High: {{ formatPrice(stock.high) }} | Low: {{ formatPrice(stock.low) }}</p>
+                    </div>
+                </ion-label>
+                <ion-note slot="end" class="price-section">
+                    <div class="current-price">
+                        {{ formatPrice(stock.close) }}
+                    </div>
+                    <div class="change" [class.positive]="getChange(stock) >= 0"
+                        [class.negative]="getChange(stock) < 0">
+                        {{ getChangeText(stock) }}
+                    </div>
+                </ion-note>
+            </ion-item>
+            }
+
+        </ion-list>
+
+    </div>
+    }
+
+</ion-content>

@@ -1,0 +1,43 @@
+
+ion-grid {
+  --ion-grid-padding: 24px;
+    height:100px;
+}
+
+ion-list {
+    width: 100%;
+}
+
+.equityTitle{
+    font-size: 12px;
+    font-weight: 800;
+
+}
+
+.equitytext{
+    font-size: 28px;
+    font-weight: 800;
+}
+.titleText{
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.change.positive {
+  color: white;
+  background-color: var(--ion-color-success-tint);
+}
+
+.change.negative {
+  color: white;
+  background-color: var(--ion-color-danger-tint);
+}
+
+.item-padding{
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.row-padding{
+    padding-top: 20px;
+}

@@ -15,9 +15,7 @@ export interface StockPricing {
 @Injectable({
   providedIn: 'root'
 })
-
-
-export class StockPricing {
+export class StockPricingService {
   
   private stockPricing: StockPricing[] = [];
   private dataLoaded = false;
